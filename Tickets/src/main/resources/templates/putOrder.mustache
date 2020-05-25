@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<div style="padding-left: 15px">
+    <h3>Update a order!</h3>
+    <form method="post" action="update">
+        <label>
+            <input type="number" name="id" placeholder="Enter order id"/>
+        </label>
+        <label>
+            <input type="text" name="concertText" placeholder="Enter new description"/>
+        </label>
+        <label>
+            <input type="text" name="price" placeholder="Enter new price"/>
+        </label>
+        <label>
+            <input type="text" name="seat" placeholder="Enter new seat"/>
+        </label>
+        <button type="submit" style="padding-left:10px; color: mediumblue">Update</button>
+    </form>
+</div>
+<div style="padding-top: 50px; padding-left: 15px">
+    <table style="width:90%;background-color: rgba(240,247,255,0.68)">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Concert Name</th>
+            <th>Concert Text</th>
+            <th>Price</th>
+            <th>Concert Date</th>
+            <th>Seat</th>
+        </tr>
+        {{#updOrder}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{username}}</td>
+                <td>{{concertName}}</td>
+                <td>{{concertText}}</td>
+                <td>{{price}}</td>
+                <td>{{concertDate}}</td>
+                <td>{{seat}}</td>
+            </tr>
+        {{/updOrder}}
+    </table>
+</div>
+
+</html>
