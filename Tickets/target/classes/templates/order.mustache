@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<style>
+th {
+  text-align: left;
+}
+
+.inl {
+    display: inline;
+}
+</style>
+<body style="padding-left: 15px">
+<div>
+    <h3>Add a order!</h3>
+    <form method="post">
+
+        <label>
+            <input type="text" name="username" placeholder="Enter username"/>
+        </label>
+        <label>
+            <input type="text" name="concertName" placeholder="Enter concert Name"/>
+        </label>
+        <label>
+            <input type="text" name="concertText" placeholder="Enter concert Text"/>
+        </label>
+        <label>
+            <input type="text" name="price" placeholder="Enter concert price"/>
+        </label>
+        <label>
+            <input type="text" name="seat" placeholder="Enter number of seat"/>
+        </label>
+        <button type="submit" style="padding-left:10px; color: mediumblue">Add</button>
+    </form>
+</div>
+<div style="padding-top:30px;">
+        <b class="inl">You can </b>
+        <form method="get" action="/order/try/put" class="inl">
+            <button type="submit" style="padding-left:10px; color: mediumblue">Update your order</button>
+        </form>
+        <b class="inl" style="padding-left:10px"> or just </b>
+        <form method="get" action="/order/try/delete" class="inl">
+            <button type="submit" style="padding-left:10px; color: firebrick">Delete your order</button>
+        </form>
+</div>
+<div>
+    <h3>Filter:</h3>
+    <form method="post" action="/order/try/filterByPrice">
+        <label>
+            <input type="number" name="filterPrice" placeholder="Find by Price"/>
+        </label>
+        <button type="submit" style="padding-left:10px; color: mediumblue">Find</button>
+    </form>
+
+    <h2>The list of orders:</h2>
+    <table style="width:90%; background-color: rgba(240,247,255,0.68);">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Concert Name</th>
+            <th>Concert Text</th>
+            <th>Price</th>
+            <th>Concert Date</th>
+            <th>Seat</th>
+        </tr>
+        {{#orders}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{username}}</td>
+                <td>{{concertName}}</td>
+                <td>{{concertText}}</td>
+                <td>{{price}}</td>
+                <td>{{concertDate}}</td>
+                <td>{{seat}}</td>
+
+            </tr>
+        {{/orders}}
+    </table>
+</div>
+</body>
+</html>
